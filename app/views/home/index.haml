@@ -1,0 +1,26 @@
+.page{ng: {controller: "HomeController"}}
+  %h2
+    Rick and Morty Character List
+    %small (Possible Spoilers)
+  %label Filter
+  %input{ng: {model: "searchTerms"}}
+
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Status
+        %th Species
+        %th Type
+        %th Gender
+        %th Origin
+        %th Location
+    %tbody
+      %tr{ng: {repeat: "character in characters | orderBy: 'name' | filter: searchTerms track by $index"}}
+        %td {{ character.name }}
+        %td {{ character.status }}
+        %td {{ character.species }}
+        %td {{ character.type }}
+        %td {{ character.gender }}
+        %td {{ character.origin }}
+        %td {{ character.location }}
